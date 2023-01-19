@@ -1,15 +1,19 @@
 {
   "files": {
     "main.css": "/flight-news/static/css/main.22502429.css",
-    "main.js": "/flight-news/static/js/main.826aae6d.js",
+    "main.js": "/flight-news/static/js/main.e4b9ca2f.js",
     "static/js/523.8ee5ba9c.chunk.js": "/flight-news/static/js/523.8ee5ba9c.chunk.js",
+    "static/js/20.49d02955.chunk.js": "/flight-news/static/js/20.49d02955.chunk.js",
+    "static/js/876.e5f03b02.chunk.js": "/flight-news/static/js/876.e5f03b02.chunk.js",
     "index.html": "/flight-news/index.html",
     "main.22502429.css.map": "/flight-news/static/css/main.22502429.css.map",
-    "main.826aae6d.js.map": "/flight-news/static/js/main.826aae6d.js.map",
-    "523.8ee5ba9c.chunk.js.map": "/flight-news/static/js/523.8ee5ba9c.chunk.js.map"
+    "main.e4b9ca2f.js.map": "/flight-news/static/js/main.e4b9ca2f.js.map",
+    "523.8ee5ba9c.chunk.js.map": "/flight-news/static/js/523.8ee5ba9c.chunk.js.map",
+    "20.49d02955.chunk.js.map": "/flight-news/static/js/20.49d02955.chunk.js.map",
+    "876.e5f03b02.chunk.js.map": "/flight-news/static/js/876.e5f03b02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.22502429.css",
-    "static/js/main.826aae6d.js"
+    "static/js/main.e4b9ca2f.js"
   ]
 }
