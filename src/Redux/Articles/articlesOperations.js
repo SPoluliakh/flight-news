@@ -8,7 +8,8 @@ export const articlesApi = createApi({
   tagTypes: ['articles'],
   endpoints: builder => ({
     fetchArticles: builder.query({
-      query: (qnt = 0) => `/v3/articles?_limit=20&_start=${qnt}`,
+      query: ({ skip = 0, keyword = '' }) =>
+        `/v3/articles?_limit=20&_start=${skip}&title_contains=${keyword}&summary_contains=${keyword}`,
 
       providesTags: ['articles'],
     }),

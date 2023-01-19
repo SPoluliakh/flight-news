@@ -1,15 +1,22 @@
 import { useSearchParams } from 'react-router-dom';
 
-export const Pagination = () => {
+export const Pagination = ({ disabled = 0 }) => {
   const [serchParams, setSearchParams] = useSearchParams();
   const pageNumber = Number(serchParams.get('page') ?? 1);
+  const keyword = serchParams.get('keyword') ?? '';
 
   const pageCount = evt => {
     const { innerText } = evt.target;
     innerText === 'next'
-      ? setSearchParams({ page: pageNumber + 1 })
+      ? setSearchParams(
+          keyword !== ''
+            ? { page: pageNumber + 1, keyword }
+            : { page: pageNumber + 1 }
+        )
       : setSearchParams(
-          pageNumber >= 2 ? { page: pageNumber - 1 } : { page: 1 }
+          keyword !== ''
+            ? { page: pageNumber - 1, keyword }
+            : { page: pageNumber - 1 }
         );
   };
 
@@ -19,7 +26,7 @@ export const Pagination = () => {
         previos
       </button>
       <span>{pageNumber}</span>
-      <button type="button" onClick={pageCount} disabled={pageNumber === 599}>
+      <button type="button" onClick={pageCount} disabled={disabled <= 19}>
         next
       </button>
     </div>
