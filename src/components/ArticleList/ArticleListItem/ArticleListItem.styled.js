@@ -1,18 +1,28 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Items = styled.li`
-  display: flex;
-  flex-direction: column;
-  flex-basis: calc(100% / 3 - 30px);
-  margin-right: 30px;
-  margin-bottom: 30px;
-`;
+export const LinkTo = styled(Link)`
+  position: relative;
+  margin-bottom: ${p => p.theme.space[3]}px;
+  margin-left: ${p => p.theme.space[3]}px;
+  text-decoration: none;
 
-export const Wrap = styled.div`
-  flex-grow: 1;
-`;
+  width: 78px;
 
-export const Img = styled.img`
-  width: 460px;
-  height: 360px;
+  &::after {
+    content: ' ';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${p => p.theme.colors.linkHover};
+    scale: 0;
+    transition: 300ms linear;
+  }
+
+  :hover::after,
+  :focus::after {
+    scale: 1;
+  }
 `;

@@ -1,16 +1,15 @@
 import { useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import * as SC from './ArticleListItem.styled';
-
+import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Hightlight } from 'components/Hightlight/Hightlight';
-import { useSelector } from 'react-redux';
-import { getFilter } from 'Redux/Articles/filterSlice';
+import { useGetSearchParams } from 'Huks/GetSearchParams';
 
 export const ArticleListItem = ({ article }) => {
   const location = useLocation();
   const { id, imageUrl, updatedAt, title, summary } = article;
 
-  const filter = useSelector(getFilter);
+  const { keyword } = useGetSearchParams();
 
   const dateConverter = value => {
     const data = new Date(value.slice(0, 10));
@@ -19,24 +18,42 @@ export const ArticleListItem = ({ article }) => {
 
   const light = useCallback(
     str => {
-      return <Hightlight filter={filter} str={str} />;
+      return <Hightlight filter={keyword} str={str} />;
     },
-    [filter]
+    [keyword]
   );
 
   return (
-    <>
-      <SC.Items>
-        <SC.Img src={`${imageUrl}`} alt={`${title}`} />
-        {updatedAt && <p>{dateConverter(updatedAt)}</p>}
-        <SC.Wrap>
-          <h2>{light(title)}</h2>
-          <p>{light(summary.slice(0, 100))}</p>
-        </SC.Wrap>
-        <Link to={`articlePage/${id}`} state={{ from: location }}>
+    <Grid
+      item
+      xs={12}
+      md={4}
+      component="li"
+      sx={{ display: 'flex', flexDirection: 'column' }}
+    >
+      <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <CardMedia
+          component="img"
+          src={`${imageUrl}`}
+          alt={`${title}`}
+          sx={{ height: 240 }}
+        />
+
+        <CardContent sx={{ flexGrow: '1' }}>
+          {updatedAt && (
+            <Typography component="p" sx={{ mb: '16px' }}>
+              {dateConverter(updatedAt)}
+            </Typography>
+          )}
+          <Typography variant="h5" component="h2" sx={{ mb: '16px' }}>
+            {light(title)}
+          </Typography>
+          <Typography component="p">{light(summary.slice(0, 100))}</Typography>
+        </CardContent>
+        <SC.LinkTo to={`articlePage/${id}`} state={{ from: location }}>
           Read more
-        </Link>
-      </SC.Items>
-    </>
+        </SC.LinkTo>
+      </Card>
+    </Grid>
   );
 };

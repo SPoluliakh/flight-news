@@ -1,49 +1,51 @@
 import { useMemo, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getFilter, filterArticles } from 'Redux/Articles/filterSlice';
-import { useGetSearchParams } from 'Huks/GetSearchParams';
 import { debounce } from 'debounce';
+import { TextField, Toolbar } from '@mui/material';
+import { BsXLg } from 'react-icons/bs';
+import { useGetSearchParams } from 'Huks/GetSearchParams';
+import * as SC from './SearchBar.styled';
+import { useState } from 'react';
 
 export const SearchBar = () => {
-  const searchedArticles = useSelector(getFilter);
-  const dispatch = useDispatch();
   const filterArea = useRef();
-  const { pageNumber, setSearchParams } = useGetSearchParams();
+  const { keyword, setSearchParams } = useGetSearchParams();
+  const [query, setQuery] = useState(keyword);
 
   const handleSearchParamsChange = useMemo(() => {
     return debounce(
       value =>
         setSearchParams(
-          value !== ''
-            ? { page: pageNumber, keyword: value }
-            : { page: pageNumber }
+          value !== '' ? { page: 1, keyword: value } : { page: 1 }
         ),
       500
     );
-  }, [pageNumber, setSearchParams]);
+  }, [setSearchParams]);
 
   const handleFilterChange = evt => {
     const { value } = evt.target;
-    dispatch(filterArticles(value));
+    setQuery(value);
     handleSearchParamsChange(value);
   };
   const handleFilterClear = () => {
-    dispatch(filterArticles(''));
+    setQuery('');
     setSearchParams({ page: 1 });
     filterArea.current.focus();
   };
 
   return (
-    <>
-      <input
-        type="text"
-        value={searchedArticles}
+    <Toolbar>
+      <TextField
+        fullWidth
+        variant="standard"
+        label="Type to search... 🔎  "
+        type="search"
+        value={query}
         onChange={handleFilterChange}
         ref={filterArea}
       />
-      <button type="button" onClick={handleFilterClear}>
-        Clear
-      </button>
-    </>
+      <SC.ClearButton type="button" onClick={handleFilterClear}>
+        <BsXLg size="24" />
+      </SC.ClearButton>
+    </Toolbar>
   );
 };

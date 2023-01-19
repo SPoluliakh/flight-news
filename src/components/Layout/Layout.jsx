@@ -1,15 +1,18 @@
-import { AppBar } from 'components/AppBar/AppBar';
+import { Header } from 'components/AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { Container } from '@mui/material';
 import Spiner from '../Spiner/Spiner';
 
 export const Layout = () => {
   return (
     <>
-      <AppBar />
-      <Suspense fallback={<Spiner />}>
-        <Outlet />
-      </Suspense>
+      <Header />
+      <Container sx={{ mt: '16px' }}>
+        <Suspense fallback={<Spiner />}>
+          <Outlet />
+        </Suspense>
+      </Container>
     </>
   );
 };

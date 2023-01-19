@@ -1,4 +1,5 @@
 import { useGetSearchParams } from 'Huks/GetSearchParams';
+import * as SC from './Pagination.styled';
 
 export const Pagination = ({ disabled = 0 }) => {
   const { pageNumber, keyword, setSearchParams } = useGetSearchParams();
@@ -19,14 +20,14 @@ export const Pagination = ({ disabled = 0 }) => {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <SC.Wrap>
       <button type="button" onClick={pageCount} disabled={pageNumber === 1}>
         previos
       </button>
-      <span>{pageNumber}</span>
+      <SC.Caunt>{pageNumber}</SC.Caunt>
       <button type="button" onClick={pageCount} disabled={disabled <= 19}>
         next
       </button>
-    </div>
+    </SC.Wrap>
   );
 };

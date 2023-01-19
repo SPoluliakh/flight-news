@@ -1,11 +1,5 @@
 export const theme = Object.freeze({
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fonts: {
-    body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'inherit',
-    monospace: 'Menlo, monospace',
-    table: 'Lucida Sans Unicode, Lucida Grande, Sans-Serif',
-  },
   fontSizes: {
     xs: 12,
     s: 14,
@@ -24,20 +18,8 @@ export const theme = Object.freeze({
     heading: 1.125,
   },
   colors: {
-    text: '#000',
-    statsText: '#ff9',
-    linkActive: 'red',
-    linkHover: 'black',
-    backdropBackground: '#101510a1',
-    modalBackground: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
-
-    deletBtn: 'lightcoral',
-    tableBorderColor: 'rgb(0, 128, 255)',
-    tableBgcHead: '#bcebdd',
-    tableBgc: '#f8e391',
-    phonebookBcg: 'lightcyan',
+    deleteButton: 'brown',
+    linkHover: 'brown',
   },
   radii: {
     none: '0',
