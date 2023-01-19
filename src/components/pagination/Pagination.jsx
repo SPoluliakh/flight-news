@@ -1,9 +1,7 @@
-import { useSearchParams } from 'react-router-dom';
+import { useGetSearchParams } from 'Huks/GetSearchParams';
 
 export const Pagination = ({ disabled = 0 }) => {
-  const [serchParams, setSearchParams] = useSearchParams();
-  const pageNumber = Number(serchParams.get('page') ?? 1);
-  const keyword = serchParams.get('keyword') ?? '';
+  const { pageNumber, keyword, setSearchParams } = useGetSearchParams();
 
   const pageCount = evt => {
     const { innerText } = evt.target;

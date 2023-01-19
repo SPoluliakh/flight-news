@@ -3,7 +3,8 @@ import { useFetchArticlesQuery } from 'Redux/Articles/articlesOperations';
 import { Pagination } from 'components/pagination/Pagination';
 import * as SC from './ArticleList.styled';
 import { useEffect, useState } from 'react';
-import { useGetSearchParams } from 'components/Huks/GetSearchParams';
+import { useGetSearchParams } from 'Huks/GetSearchParams';
+import Spiner from '../Spiner/Spiner';
 
 export const ArticleList = () => {
   const { pageNumber, keyword, setSearchParams } = useGetSearchParams();
@@ -28,7 +29,7 @@ export const ArticleList = () => {
   if (!data) return;
   return (
     <>
-      {isFetching && <p>Loading...</p>}
+      {isFetching && <Spiner />}
       <Pagination disabled={data.length} />
 
       <SC.List>
@@ -40,7 +41,7 @@ export const ArticleList = () => {
           <p>Sorry don't have matches your query</p>
         )}
       </SC.List>
-      <Pagination />
+      <Pagination disabled={data.length} />
     </>
   );
 };

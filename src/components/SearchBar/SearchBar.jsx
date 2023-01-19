@@ -1,16 +1,14 @@
 import { useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
 import { getFilter, filterArticles } from 'Redux/Articles/filterSlice';
-
+import { useGetSearchParams } from 'Huks/GetSearchParams';
 import { debounce } from 'debounce';
 
 export const SearchBar = () => {
   const searchedArticles = useSelector(getFilter);
   const dispatch = useDispatch();
   const filterArea = useRef();
-  const [serchParams, setSearchParams] = useSearchParams();
-  const pageNumber = Number(serchParams.get('page') ?? 1);
+  const { pageNumber, setSearchParams } = useGetSearchParams();
 
   const handleSearchParamsChange = useMemo(() => {
     return debounce(
@@ -43,7 +41,6 @@ export const SearchBar = () => {
         onChange={handleFilterChange}
         ref={filterArea}
       />
-
       <button type="button" onClick={handleFilterClear}>
         Clear
       </button>
