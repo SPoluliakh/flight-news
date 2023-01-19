@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/flight-news/static/css/main.22502429.css",
-    "main.js": "/flight-news/static/js/main.36457933.js",
+    "main.js": "/flight-news/static/js/main.d28c9607.js",
     "index.html": "/flight-news/index.html",
     "main.22502429.css.map": "/flight-news/static/css/main.22502429.css.map",
-    "main.36457933.js.map": "/flight-news/static/js/main.36457933.js.map"
+    "main.d28c9607.js.map": "/flight-news/static/js/main.d28c9607.js.map"
   },
   "entrypoints": [
     "static/css/main.22502429.css",
-    "static/js/main.36457933.js"
+    "static/js/main.d28c9607.js"
   ]
 }
