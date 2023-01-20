@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const LinkTo = styled(Link)`
+  display: flex;
+  align-items: center;
+
   position: relative;
   margin-bottom: ${p => {
     if (p.children === 'Home page') {
@@ -14,6 +17,9 @@ export const LinkTo = styled(Link)`
   width: ${p => {
     if (p.children === 'Read more') {
       return 70;
+    }
+    if (Array.isArray(p.children)) {
+      return 85;
     }
   }}px;
   color: ${p => {

@@ -1,5 +1,5 @@
 import { useLocation, useParams } from 'react-router-dom';
-
+import { FcLeft } from 'react-icons/fc';
 import { CardContent } from '@mui/material';
 import { useFetchArticlesByIdQuery } from 'Redux/Articles/articlesOperations';
 import * as SC from './ArticleDetails.styled';
@@ -11,7 +11,7 @@ export const ArticleDetails = () => {
   const { data } = useFetchArticlesByIdQuery(id);
 
   return (
-    <section>
+    <SC.Section>
       <h1 className="visually-hidden ">Detail information</h1>
       {data && (
         <SC.Wrap>
@@ -42,10 +42,13 @@ export const ArticleDetails = () => {
                 dolor sit, amet consectetur adipisicing elit.
               </p>
             </CardContent>
+
+            <CustomLink to={location.state.from}>
+              <FcLeft size="24" /> Go back
+            </CustomLink>
           </SC.InnerWrap>
-          <CustomLink to={location.state.from}> Go back</CustomLink>
         </SC.Wrap>
       )}
-    </section>
+    </SC.Section>
   );
 };
