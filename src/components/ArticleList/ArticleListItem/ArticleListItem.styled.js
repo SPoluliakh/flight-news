@@ -1,28 +1,31 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const LinkTo = styled(Link)`
-  position: relative;
-  margin-bottom: ${p => p.theme.space[3]}px;
-  margin-left: ${p => p.theme.space[3]}px;
-  text-decoration: none;
+import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 
-  width: 78px;
-
-  &::after {
-    content: ' ';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: ${p => p.theme.colors.linkHover};
-    scale: 0;
-    transition: 300ms linear;
-  }
-
-  :hover::after,
-  :focus::after {
-    scale: 1;
-  }
+export const Item = styled(Grid)`
+  display: flex;
+  flex-direction: column;
 `;
+
+export const Wrap = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const Image = styled(CardMedia)`
+  height: 240px;
+`;
+
+export const Content = styled(CardContent)`
+  flex-grow: 1;
+`;
+
+export const DateText = styled(Typography)`
+  margin-bottom: ${p => p.theme.space[3]}px;
+`;
+
+export const CardTitle = styled(Typography)`
+  margin-bottom: ${p => p.theme.space[3]}px;
+`;
+export const CardText = styled(Typography)``;

@@ -1,5 +1,9 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+
+import { CardContent } from '@mui/material';
 import { useFetchArticlesByIdQuery } from 'Redux/Articles/articlesOperations';
+import * as SC from './ArticleDetails.styled';
+import { CustomLink } from 'components/CustomLink/CustomLink';
 
 export const ArticleDetails = () => {
   const { id } = useParams();
@@ -7,44 +11,41 @@ export const ArticleDetails = () => {
   const { data } = useFetchArticlesByIdQuery(id);
 
   return (
-    <>
+    <section>
+      <h1 className="visually-hidden ">Detail information</h1>
       {data && (
-        <>
-          <img src={`${data.imageUrl}`} alt={`${data.title}`} />
-          <h1>{data.title}</h1>
-          <p>
-            {data.summary}. Lorem ipsum dolor sit, amet consectetur adipisicing
-            elit. Earum totam accusamus ad rem architecto tempore asperiores
-            rerum deleniti expedita magni eius quidem dolorum qui adipisci fuga
-            dolor, doloremque ab! Amet Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Praesentium quo nemo voluptates corrupti minus
-            magni iure suscipit laborum, ullam consequatur eveniet neque placeat
-            facere hic, harum architecto. Iusto, tempore assumenda. Lorem ipsum
-            dolor sit, amet consectetur adipisicing elit. Earum totam accusamus
-            ad rem architecto tempore asperiores rerum deleniti expedita magni
-            eius quidem dolorum qui adipisci fuga dolor, doloremque ab! Amet
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-            quo nemo voluptates corrupti minus magni iure suscipit laborum,
-            ullam consequatur eveniet neque placeat facere hic, harum
-            architecto. Iusto, tempore assumenda. Lorem ipsum dolor sit, amet
-            consectetur adipisicing elit. Earum totam accusamus ad rem
-            architecto tempore asperiores rerum deleniti expedita magni eius
-            quidem dolorum qui adipisci fuga dolor, doloremque ab! Amet Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Praesentium quo
-            nemo voluptates corrupti minus magni iure suscipit laborum, ullam
-            consequatur eveniet neque placeat facere hic, harum architecto.
-            Iusto, tempore assumenda. Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Earum totam accusamus ad rem architecto tempore
-            asperiores rerum deleniti expedita magni eius quidem dolorum qui
-            adipisci fuga dolor, doloremque ab! Amet Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Praesentium quo nemo voluptates
-            corrupti minus magni iure suscipit laborum, ullam consequatur
-            eveniet neque placeat facere hic, harum architecto. Iusto, tempore
-            assumenda.
-          </p>
-          <Link to={location.state.from}> Go back</Link>
-        </>
+        <SC.Wrap>
+          <SC.Image
+            component="img"
+            src={`${data.imageUrl}`}
+            alt={`${data.title}`}
+          />
+          <SC.InnerWrap>
+            <CardContent>
+              <h1>{data.title}</h1>
+              <p>
+                {data.summary}. Lorem ipsum dolor sit, amet consectetur
+                adipisicing elit. Earum totam accusamus ad rem architecto
+                tempore asperiores rerum deleniti expedita magni eius quidem
+                dolorum qui adipisci fuga dolor, doloremque ab! Amet Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Praesentium quo
+                nemo voluptates corrupti minus magni iure suscipit laborum,
+                ullam consequatur eveniet neque placeat facere hic, harum
+                architecto. Iusto, tempore assumenda. Lorem ipsum dolor sit,
+                amet consectetur adipisicing elit. Earum totam accusamus ad rem
+                architecto tempore asperiores rerum deleniti expedita magni eius
+                quidem dolorum qui adipisci fuga dolor, doloremque ab! Amet
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Praesentium quo nemo voluptates corrupti minus magni iure
+                suscipit laborum, ullam consequatur eveniet neque placeat facere
+                hic, harum architecto. Iusto, tempore assumenda. Lorem ipsum
+                dolor sit, amet consectetur adipisicing elit.
+              </p>
+            </CardContent>
+          </SC.InnerWrap>
+          <CustomLink to={location.state.from}> Go back</CustomLink>
+        </SC.Wrap>
       )}
-    </>
+    </section>
   );
 };

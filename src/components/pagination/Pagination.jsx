@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { useGetSearchParams } from 'Huks/GetSearchParams';
 import * as SC from './Pagination.styled';
 
@@ -6,7 +7,7 @@ export const Pagination = ({ disabled = 0 }) => {
 
   const pageCount = evt => {
     const { innerText } = evt.target;
-    innerText === 'next'
+    innerText === 'NEXT'
       ? setSearchParams(
           keyword !== ''
             ? { page: pageNumber + 1, keyword }
@@ -21,13 +22,23 @@ export const Pagination = ({ disabled = 0 }) => {
 
   return (
     <SC.Wrap>
-      <button type="button" onClick={pageCount} disabled={pageNumber === 1}>
-        previos
-      </button>
-      <SC.Caunt>{pageNumber}</SC.Caunt>
-      <button type="button" onClick={pageCount} disabled={disabled <= 19}>
-        next
-      </button>
+      <Button
+        variant="contained"
+        type="button"
+        onClick={pageCount}
+        disabled={pageNumber === 1}
+      >
+        PREV
+      </Button>
+      <SC.Count>{pageNumber}</SC.Count>
+      <Button
+        variant="contained"
+        type="button"
+        onClick={pageCount}
+        disabled={disabled <= 19}
+      >
+        NEXT
+      </Button>
     </SC.Wrap>
   );
 };

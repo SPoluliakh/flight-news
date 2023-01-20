@@ -6,7 +6,7 @@ export const Wrap = styled.div`
   text-align: center;
 `;
 
-export const Caunt = styled.span`
+export const Count = styled.span`
   padding-left: ${p => p.theme.space[3]}px;
   padding-right: ${p => p.theme.space[3]}px;
 `;

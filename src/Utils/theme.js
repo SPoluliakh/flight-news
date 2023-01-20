@@ -20,6 +20,7 @@ export const theme = Object.freeze({
   colors: {
     deleteButton: 'brown',
     linkHover: 'brown',
+    navLink: 'whitesmoke',
   },
   radii: {
     none: '0',
@@ -28,14 +29,10 @@ export const theme = Object.freeze({
   },
   borders: {
     none: 'none',
-    phonebook: '2px solid  black',
-    contactForm: '1px dashed black',
-    headerBorder: '2px solid  blue',
   },
   shadows: {
     boxShadow: '0px 0px 4px 3px gray',
     buttonsShadow: ' 0 1px 1px #2d2020',
-    deletButton: '3px 3px 3px 0 red',
     textShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) ',
   },
 });

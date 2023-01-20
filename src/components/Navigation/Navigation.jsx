@@ -1,17 +1,17 @@
 import { AppBar, Toolbar } from '@mui/material';
 import { pages } from 'Utils/pages';
-import { Link } from 'react-router-dom';
 import { FcKindle } from 'react-icons/fc';
+import { CustomLink } from 'components/CustomLink/CustomLink';
 
-export const Header = () => {
+export const Navigation = () => {
   return (
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar component="nav">
         <FcKindle size="42" />
         {pages.map(({ href, text }) => (
-          <Link key={text} to={href}>
+          <CustomLink key={text} to={href}>
             {text}
-          </Link>
+          </CustomLink>
         ))}
       </Toolbar>
     </AppBar>

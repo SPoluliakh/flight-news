@@ -1,7 +1,7 @@
 import { ArticleListItem } from './ArticleListItem/ArticleListItem';
 import { useFetchArticlesQuery } from 'Redux/Articles/articlesOperations';
 import { Pagination } from 'components/pagination/Pagination';
-import { Grid } from '@mui/material';
+import * as SC from './ArticleList.styled';
 import { useGetSearchParams } from 'Huks/GetSearchParams';
 import Spiner from '../Spiner/Spiner';
 
@@ -21,12 +21,7 @@ export const ArticleList = () => {
       {isFetching && <Spiner />}
       <Pagination disabled={data.length} />
 
-      <Grid
-        container
-        sx={{ pl: '0', listStyle: 'none' }}
-        spacing={2}
-        component="ul"
-      >
+      <SC.List container spacing={2} component="ul">
         {data.length > 0 ? (
           data.map(article => (
             <ArticleListItem key={article.id} article={article} />
@@ -34,7 +29,7 @@ export const ArticleList = () => {
         ) : (
           <p>Sorry don't have matches your query</p>
         )}
-      </Grid>
+      </SC.List>
       <Pagination disabled={data.length} />
     </>
   );
