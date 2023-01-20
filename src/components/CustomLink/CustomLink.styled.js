@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export const LinkTo = styled(Link)`
+export const LinkTo = styled(NavLink)`
   display: flex;
   align-items: center;
-
+  transition: 300ms linear;
   position: relative;
   margin-bottom: ${p => {
     if (p.children === 'Home page') {
@@ -40,8 +40,10 @@ export const LinkTo = styled(Link)`
     transition: 300ms linear;
   }
 
-  :hover::after,
-  :focus::after {
+  :hover::after {
+    scale: 1;
+  }
+  &.active::after {
     scale: 1;
   }
 `;
