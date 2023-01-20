@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import { useGetSearchParams } from 'Huks/GetSearchParams';
+import PropTypes from 'prop-types';
 import * as SC from './Pagination.styled';
 
 export const Pagination = ({ disabled = 0 }) => {
@@ -41,4 +42,8 @@ export const Pagination = ({ disabled = 0 }) => {
       </Button>
     </SC.Wrap>
   );
+};
+
+Pagination.propTypes = {
+  disabled: PropTypes.number,
 };

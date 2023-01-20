@@ -31,7 +31,7 @@ export const ArticleDetails = () => {
                 dolor sit amet consectetur adipisicing elit. Praesentium quo
                 nemo voluptates corrupti minus magni iure suscipit laborum,
                 ullam consequatur eveniet neque placeat facere hic, harum
-                architecto. Iusto, tempore assumenda. Lorem ipsum dolor sit,
+                'architecto. Iusto, tempore assumenda. Lorem ipsum dolor sit,
                 amet consectetur adipisicing elit. Earum totam accusamus ad rem
                 architecto tempore asperiores rerum deleniti expedita magni eius
                 quidem dolorum qui adipisci fuga dolor, doloremque ab! Amet
@@ -39,7 +39,7 @@ export const ArticleDetails = () => {
                 Praesentium quo nemo voluptates corrupti minus magni iure
                 suscipit laborum, ullam consequatur eveniet neque placeat facere
                 hic, harum architecto. Iusto, tempore assumenda. Lorem ipsum
-                dolor sit, amet consectetur adipisicing elit.
+                dolor sit, amet consectetur adipisicing elit.'
               </p>
             </CardContent>
 

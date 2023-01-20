@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as SC from './CustomLink.styled';
 
 export const CustomLink = ({ to, state, children }) => {
@@ -6,4 +7,12 @@ export const CustomLink = ({ to, state, children }) => {
       {children}
     </SC.LinkTo>
   );
+};
+
+CustomLink.propTypes = {
+  to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  state: PropTypes.shape({
+    from: PropTypes.object,
+  }),
+  children: PropTypes.node,
 };

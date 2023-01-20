@@ -4,6 +4,7 @@ import { Pagination } from 'components/pagination/Pagination';
 import * as SC from './ArticleList.styled';
 import { useGetSearchParams } from 'Huks/GetSearchParams';
 import Spiner from '../Spiner/Spiner';
+import { NoInfo } from 'components/NoInfo/NoInfo';
 
 export const ArticleList = () => {
   const { pageNumber, keyword } = useGetSearchParams();
@@ -27,7 +28,7 @@ export const ArticleList = () => {
             <ArticleListItem key={article.id} article={article} />
           ))
         ) : (
-          <p>Sorry don't have matches your query</p>
+          <NoInfo />
         )}
       </SC.List>
       <Pagination disabled={data.length} />

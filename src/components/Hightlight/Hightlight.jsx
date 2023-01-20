@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 export const Hightlight = ({ filter, str }) => {
   if (!filter) {
@@ -20,4 +21,9 @@ export const Hightlight = ({ filter, str }) => {
     });
   }
   return str;
+};
+
+Hightlight.propTypes = {
+  str: PropTypes.string,
+  filter: PropTypes.string,
 };
