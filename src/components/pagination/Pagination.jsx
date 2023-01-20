@@ -7,8 +7,8 @@ export const Pagination = ({ disabled = 0 }) => {
   const { pageNumber, keyword, setSearchParams } = useGetSearchParams();
 
   const pageCount = evt => {
-    const { innerText } = evt.target;
-    innerText === 'NEXT'
+    const { name } = evt.target;
+    name === 'next'
       ? setSearchParams(
           keyword !== ''
             ? { page: pageNumber + 1, keyword }
@@ -22,25 +22,30 @@ export const Pagination = ({ disabled = 0 }) => {
   };
 
   return (
-    <SC.Wrap>
-      <Button
-        variant="contained"
-        type="button"
-        onClick={pageCount}
-        disabled={pageNumber === 1}
-      >
-        PREV
-      </Button>
-      <SC.Count>{pageNumber}</SC.Count>
-      <Button
-        variant="contained"
-        type="button"
-        onClick={pageCount}
-        disabled={disabled <= 19}
-      >
-        NEXT
-      </Button>
-    </SC.Wrap>
+    <>
+      {disabled >= 19 && (
+        <SC.Wrap>
+          <Button
+            name="prev"
+            variant="contained"
+            type="button"
+            onClick={pageCount}
+            disabled={pageNumber === 1}
+          >
+            PREV
+          </Button>
+          <SC.Count>{pageNumber}</SC.Count>
+          <Button
+            name="next"
+            variant="contained"
+            type="button"
+            onClick={pageCount}
+          >
+            NEXT
+          </Button>
+        </SC.Wrap>
+      )}
+    </>
   );
 };
 
