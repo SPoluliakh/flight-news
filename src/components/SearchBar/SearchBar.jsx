@@ -38,7 +38,7 @@ export const SearchBar = () => {
         fullWidth
         variant="standard"
         label="Type to search... 🔎  "
-        type="search"
+        type="text"
         value={query}
         onChange={handleFilterChange}
         ref={filterArea}
