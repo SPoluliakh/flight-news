@@ -29,8 +29,8 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="articlePage/:id" element={<ArticlePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };
