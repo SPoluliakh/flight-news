@@ -1,1 +1,1 @@
-export const pages = [{ text: 'Home page', href: '/' }];
+export const pages = [{ text: 'Home page', href: '/home' }];

@@ -39,7 +39,7 @@ export const ArticleListItem = ({ article }) => {
             {ChangeColor(summary.slice(0, 100))}
           </SC.CardText>
         </SC.Content>
-        <CustomLink to={`articlePage/${id}`} state={{ from: location }}>
+        <CustomLink to={`/articlePage/${id}`} state={{ from: location }}>
           Read more
         </CustomLink>
       </SC.Wrap>
