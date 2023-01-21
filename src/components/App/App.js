@@ -16,13 +16,21 @@ const HomePage = lazy(() =>
   }))
 );
 
+const NotFoundPage = lazy(() =>
+  import('../../Pages/NotFoundPage/NotFoundPage').then(module => ({
+    ...module,
+    default: module.NotFoundPage,
+  }))
+);
+
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="articlePage/:id" element={<ArticlePage />} />
       </Route>
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };
