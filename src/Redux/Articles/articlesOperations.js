@@ -9,7 +9,7 @@ export const articlesApi = createApi({
   endpoints: builder => ({
     fetchArticles: builder.query({
       query: ({ skip = 0, keyword = '' }) =>
-        `/v3/articles?_limit=20&_start=${skip}&title_contains=${keyword}&summary_contains=${keyword}`,
+        `/v3/articles?_limit=20&_start=${skip}&title_contains=${keyword}`,
 
       providesTags: ['articles'],
     }),
