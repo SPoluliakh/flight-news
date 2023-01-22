@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import { useGetSearchParams } from 'Huks/GetSearchParams';
 import PropTypes from 'prop-types';
 import * as SC from './Pagination.styled';
+import { windowScroll } from 'Utils/smoothScroll';
 
 export const Pagination = ({ disabled = 0 }) => {
   const { pageNumber, keyword, setSearchParams } = useGetSearchParams();
@@ -19,6 +20,7 @@ export const Pagination = ({ disabled = 0 }) => {
             ? { page: pageNumber - 1, keyword }
             : { page: pageNumber - 1 }
         );
+    windowScroll();
   };
 
   return (

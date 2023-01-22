@@ -16,6 +16,7 @@ export const ArticleList = () => {
       refetchOnMountOrArgChange: true,
     }
   );
+
   if (!data) return;
   return (
     <>
