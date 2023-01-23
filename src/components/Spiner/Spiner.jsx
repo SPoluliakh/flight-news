@@ -3,9 +3,11 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 const override: CSSProperties = {
   position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  top: '0',
+  left: '0',
+  right: '0',
+  bottom: '0',
+  margin: 'auto',
   borderColor: 'yellow',
 };
 
